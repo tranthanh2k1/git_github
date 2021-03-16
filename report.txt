@@ -1,9 +1,0 @@
-Daily Report – 10/03/2021 Trần Tiến Thành
-■ Today plan: 
-- Code giao diện website
-■ Actual:
-- code đc header 
-■ Tomorrow Plan:
-- Tiếp tục hoàn thành 
-■ Issues:
--
