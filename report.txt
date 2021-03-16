@@ -1,18 +1,9 @@
 Daily Report – 10/03/2021 Trần Tiến Thành
 ■ Today plan: 
-- Tìm hiểu về Git & GitHub
+- Code giao diện website
 ■ Actual:
-- Các bước upload file mới lên GitHub:
-	+ git init -> git add -> git commit -> git remote add origin -> git push -u origin main
-- Upload file update tiếp lên:
-	+ git add -> git commit -> git push -u origin main
-- download source code trên github về máy dùng: git clone
-- Đồng bộ code trên github với mày mình dùng: git pull 
-- Thao tác với branch để phân nhánh code:
-	+ git checkout -b <tên branch> 
-	+ chuyển code nhánh phụ sang nhánh main: 
-  (git check <nhánh chính> -> git merge <tên nhánh phụ> -> git push -u origin <tên nhánh chính>)
+- code đc header 
 ■ Tomorrow Plan:
-- Tiếp tục tìm hiểu thêm 
+- Tiếp tục hoàn thành 
 ■ Issues:
 -
