@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button type="button" id="btn">Click</button>
+    <script>
+      var mang = ["Thành", "Chiến", "Thương", "Duy Anh", "Long", "Hiếu"];
+
+      var noimang = document.write(mang.valueOf()); // Nối mảng
+      var thempt = document.write(mang.valueOf(mang.push("Hello"))); // Thêm phần tử "Hello" vào mảng: mang
+      var xoapt = mang.shift() + mang.pop(); // Xóa phần tử đầu và phần tử cuối cùng "Hello" vừa thêm bên trên đi
+      var themptvaodaumang = mang.unshift("Hay"); // Thêm phần tử "Hay" vào đầu mảng
+      // Vòng for
+      for (var i = 0; i < mang.length; i++) {
+        console.log(mang[i] + ": hello");
+        if (i >= 4) {
+          break; // Sử dụng break để thoát khỏi vòng lặp
+        }
+      }
+
+      // Vòng while
+      var i = 0;
+      while (i < mang.length) {
+        console.log(mang[i]);
+        i++;
+      }
+
+      // Vòng do while
+      var text = "Product";
+      var c = 0;
+      do {
+        c++;
+        if (c == 3) {
+          continue; // Sử dụng continue để bỏ qua vòng lặp khi c = 3 và tiếp tục lặp đến đk cuối cùng
+        }
+        console.log(text + c);
+      } while (c < 10);
+
+      var btn = document.getElementById("btn"); // Select đến id btn trong thẻ button
+      // console.log(btn);
+      // Thêm sự kiện onclick
+      btn.addEventListener("click", function (age) {
+        // Truyền vào function thuộc tính age
+        alert(this.type); // dùng this gọi chính đối tượng của function đang thực thi
+        this.name = "Thành"; // Thêm thuộc tính name vào function
+        age = 4;
+        console.log(age);
+        console.log(this.name);
+      });
+    </script>
+  </body>
+</html>
