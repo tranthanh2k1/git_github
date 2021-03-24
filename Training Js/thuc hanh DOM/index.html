@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .thuchanh {
+        margin: 100px 0 0 300px;
+      }
+      .btn {
+        margin-top: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="thuchanh">
+      <label for="" class="text"></label>
+      <input type="text" value="hello world" class="hello" />
+      <div class="btn">
+        <button class="themNoiDung">Thêm nội dung</button>
+        <button class="thaydoiType">Thay đổi thuộc tính</button>
+        <button class="thaydoiColor">Thay đổi màu</button>
+        <button class="changeColor">ChangeColor</button>
+      </div>
+    </div>
+
+    <script>
+      // $ để gọi tắt DOM Element
+      var $ = document.querySelector.bind(document);
+
+      // Ví dụ: DOM HTML
+      // dùng innerHTML thêm nội dung
+      $(".themNoiDung").addEventListener("click", function () {
+        $(".text").innerHTML = `<h1>hello</h1>`;
+      });
+
+      // thay đổi thuộc tính
+      $(".thaydoiType").addEventListener("click", function () {
+        $(".hello").type = "button";
+      });
+
+      // Ví dụ: DOM CSS
+      $(".thaydoiColor").addEventListener("click", function () {
+        $(".hello").style.border = "1px solid #FF0000";
+      });
+    </script>
+  </body>
+</html>
