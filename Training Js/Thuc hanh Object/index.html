@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    
+      <ul class="create"></ul>
+      
+    </div>
+    <script>
+      // DOM Nodes
+      // Tạo mới 1 thẻ li
+      var liEL = document.createElement("li");
+      // thêm class="hi" cho thẻ li vừa tạo
+      liEL.setAttribute("class", "hi");
+      // thêm thẻ li vào trong thẻ ul
+      var create = document.querySelector(".create");
+        create.appendChild(liEL).innerHTML = "hello";
+
+      // Khởi tạo đối tượng Object
+      const sinhvien = {
+        id: 1,
+        name: "Trần Tiến Thành",
+        namHienTai: 2021,
+        namSinh: 2001,
+        tinh_tuoi: function () {
+          console.log(
+            "Tuổi của sinh viên: " +
+              sinhvien.name +
+              " là: " +
+              (sinhvien.namHienTai - sinhvien.namSinh)
+          );
+        },
+      };
+
+      sinhvien.tinh_tuoi();
+    </script>
+  </body>
+</html>
