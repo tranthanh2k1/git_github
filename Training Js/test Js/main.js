@@ -1,46 +1,46 @@
-var $ = document.querySelector.bind(document);
-
+const username = document.getElementById('username')
+const password = document.getElementById('password')
+const form_login = document.getElementById('form-login')
+const un = "admin"
+const pw = "123456"
 // var ktra = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{5,10}$";
-var kt = /[a-zA-Z]/
 
-$('#form-login').addEventListener('submit', function (e) {
-  e.preventDefault(); // chặn sự kiện load trang mặc định của website
-  if ($('#username').value == "") {
-    // alert("Mời nhập tên đăng nhập");
-    $('#username').style.border = '1px solid #FF0000';
-    // return false;
+form_login.addEventListener('submit', function (e) {
+  e.preventDefault();
+  if (username.value === "") {
+    alert("Mời nhập tên đăng nhập");
+    username.focus();
+    return false;
   }
 
-  if ($('#username').style.border = '1px solid #FF0000') {
-    $('#username').style.border = '1px soild #000000'
-  }
-  // $('#username').addEventListener('change', function () {
-  //   $('#username').style.display = "none";
-  // })
-
-  if ($('#password').value.length == "") {
+  if (password.value.length == "") {
     alert("Mời nhập mật khẩu");
-    $('#password').focus();
-    return false;
-  }
-  if ($('#password').value.length = kt) {
-    alert("oke");
-    $('#password').focus();
-    return false;
-  }
-  if ($('#password').value.length < 5 || $('#password').value.length > 10) {
-    alert("Mật khẩu phải lớn hơn 5 kí tự và nhỏ hơn 10 kí tự");
-    $('#password').focus();
+    password.focus();
     return false;
   }
 
-  return true;
+  if (password.value.length < 5 || password.value.length > 10) {
+    alert("Mật khẩu phải lớn hơn 5 kí tự và nhỏ hơn 10 kí tự");
+    password.focus();
+    return false;
+  }
+  if (username.value != un) {
+    alert("Username hoặc Password không đúng!")
+    username.focus();
+    return false;
+  } else if (password.value != pw) {
+    alert("Username hoặc Password không đúng!")
+    password.focus();
+    return false;
+  }
+  else {
+    alert("Đăng nhập thành công")
+    window.location = 'https://baomoi.com/'
+  }
+
+
 })
 
-
-/*
-console.log(window.location.hash);
-*/
 
 // Code cho anh 1 trang đăng nhập.Có 2 ô input
 //   + Username.
