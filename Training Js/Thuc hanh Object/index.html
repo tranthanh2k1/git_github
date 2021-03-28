@@ -27,7 +27,7 @@
         name: "Trần Tiến Thành",
         namHienTai: 2021,
         namSinh: 2001,
-        tinh_tuoi: function () {
+        tinh_tuoi () {
           console.log(
             "Tuổi của sinh viên: " +
               sinhvien.name +
@@ -37,6 +37,8 @@
         },
       };
 
+        const {id, name, namHienTai} = sinhvien;
+        console.log(name);
       sinhvien.tinh_tuoi();
     </script>
   </body>
