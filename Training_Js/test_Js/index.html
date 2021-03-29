@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <h2>Login Form</h2>
+    <form action="" id="form-login">
+      <div class="container">
+        <div class="un">
+          <label for="uname"><b>Username</b></label>
+          <input
+            type="text"
+            placeholder="Mời nhập Username"
+            name="uname"
+            id="username"
+          />
+        </div>
+        <div id="username_error">Vui lòng kiếm tra lại tên đăng nhập</div>
+        <div class="pw">
+          <label for="psw"><b>Password</b></label>
+          <input
+            type="text"
+            placeholder="Mời nhập Password"
+            name="psw"
+            id="password"
+          />
+        </div>
+        <div id="password_error">
+          Mật khẩu phải có chứ hoa chữ thường kí tự đặc biệt và ko vượt quá từ 5
+          đến 10 kí tự
+        </div>
+        <button type="submit" class="btn">Login</button>
+      </div>
+    </form>
+    <script src="main.js"></script>
+  </body>
+</html>
