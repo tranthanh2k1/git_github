@@ -20,9 +20,9 @@ const quatrinhhoc = (totalMark, time) => {
         (resolve, reject) => {  // callback function nhận 2 tham số resolve, reject
             setTimeout(() => {
                 if (totalMark >= 9) {
-                    resolve(totalMark);  // 
+                    resolve(totalMark);  // nếu thành công
                 } else {
-                    reject("Không đủ điều kiện sc xuất sắc")
+                    reject("Không đủ điều kiện sc xuất sắc") // nếu thất bại
                 }
             }, time);
         }
@@ -32,9 +32,9 @@ const quatrinhhoc = (totalMark, time) => {
 
 quatrinhhoc(parseInt(diemTongKet), parseInt(time))
     .then(function (mark) {
-        h1.innerHTML = 'Được khen thưởng, vì điểm tổng kết = ' + mark;
+        h1.innerHTML = 'Được khen thưởng, vì điểm tổng kết = ' + mark;  // trả về resolve
     })
     .catch(function (err) {
-        h1.innerHTML = err;
+        h1.innerHTML = err; // trả về reject
     })
 
