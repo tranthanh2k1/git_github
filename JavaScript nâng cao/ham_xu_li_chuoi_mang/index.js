@@ -42,4 +42,5 @@ var chuoi = 'Trần Tiến Thành';
 
 // 11. trim(): trả về 1 chuỗi đã loại bỏ koangr trắng
 
-// 12. replace(): tìm và thay thế giá trị đó(chỉ tìm và thay thế gtri đầu) 
+// 12. replace(): tìm và thay thế giá trị đó(chỉ tìm và thay thế gtri đầu)
+
