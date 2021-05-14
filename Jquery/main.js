@@ -23,3 +23,30 @@
 //  + slideUp(): trượt lên 1 phần tử
 //  + slideToggle(): chuyển đổi giữa slideDown() và slideUp()
 // Jquery Animate: tạo hoạt ảnh tùy chỉnh
+// Ví dụ: Hiệu ứng trong Jquery
+// $(document).ready(function () {
+//     $('button').click(function () {
+//         $('#div1').fadeToggle();
+//         $('#div2').fadeToggle("show");
+//         $('#div3').fadeToggle(3000);
+//     })
+// })
+
+// Jquery HTML
+// html(): đặt và trả về nội dung (innerHTML) của các phần tử đã chọn
+// val(): lấy giá trị của thẻ input, select, textarea
+// append(): chèn nội dung vào phần tử đã chọn
+// prepend(): chèn nội dung vào đầu phần tử đã chọn
+// after():  chèn nội dung sau các phần tử đã chọn
+// before(): chèn nội dung trc các phần tử đã chọn
+// remove():  loại bỏ phần tử đã chọn(và các phần tử con của nó)
+// empty(): loại bỏ các phẩn tử con khỏi phần tử đã chọn
+// css(): đặt hoặc trả về thuộc tính style
+// ví dụ: 
+$(document).ready(function () {
+    $('button').click(function () {
+        $('#div1').css({ 'background-color': 'yellow', 'height': '200px' });
+        $('#div2').fadeToggle("show");
+        $('#div3').fadeToggle(3000);
+    })
+})
