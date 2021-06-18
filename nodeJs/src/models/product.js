@@ -10,8 +10,6 @@ const ProductSchema = new Schema({
     },
     description: {
         type: String,
-        required: true,
-        maxLength: 2000
     },
     price: {
         type: Number,
@@ -20,12 +18,12 @@ const ProductSchema = new Schema({
         type: String
     },
     shipping: {
-        // required: true,
+        required: true,
         type: Boolean
     },
-    sold: {
-        type: Number,
-        default: 0
+    createAt: {
+        type: Date,
+        default: Date.now
     }
 });
 

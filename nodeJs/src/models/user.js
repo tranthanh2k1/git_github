@@ -11,7 +11,7 @@ const UserSchema = new Schema({
         type: String,
         required: true,
     },
-    createAt: {     // để cập nhật thời gian tạo User
+    createAt: {
         type: Date,
         default: Date.now
     }

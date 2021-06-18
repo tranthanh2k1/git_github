@@ -1,3 +1,4 @@
+// AUTH
 POST http://localhost:3111/api/auth/register
 Content-Type: application/json
 
@@ -18,6 +19,11 @@ Content-Type: application/json
 }
 
 
+###
+GET http://localhost:3111/api/auth/logout
+
+
+// POST
 ###
 
 POST http://localhost:3111/api/posts
@@ -57,3 +63,30 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGMwY
 
 DELETE http://localhost:3111/api/posts/60c17b71dda86d5048a503d9
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGMwYzdjOWVmNWIzMTM1NjA4Mzk0NjEiLCJpYXQiOjE2MjMyOTI0NzR9.ozZt7SgJo9ek1w1I5Zw2LCIkyyxQSnYwTR1Eb5sl1f4
+
+
+// CATEGORY
+###
+
+POST http://localhost:3111/api/category
+Content-Type: application/json
+
+{
+    "name": "danh mục 1"
+}
+
+
+###
+
+GET http://localhost:3111/api/categories
+Content-Type: application/json
+
+
+###
+
+PUT http://localhost:3111/api/category/60ca1dd073fa4444b0636396
+Content-Type: application/json
+
+{
+    "name": "danh mục 3"
+}

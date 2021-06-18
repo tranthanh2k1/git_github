@@ -12,7 +12,7 @@ exports.register = async (req, res) => {
     if (!username || !password) {
         return res.status(400).json({       // nếu không có username || password trả về status 400 và message
             success: false,
-            message: "Không tồn tại username hoặc password"
+            message: "Nhập username và password"
         })
     }
 
@@ -63,7 +63,7 @@ exports.login = async (req, res) => {
     if (!username || !password) {
         return res.status(400).json({
             success: false,
-            message: "Không tồn tại username hoặc password"
+            message: "Nhập username và password"
         })
     }
 
@@ -94,6 +94,9 @@ exports.login = async (req, res) => {
             process.env.ACCESS_TOKEN_SECRET
         )
 
+        // tạo 1 cookie mới có cú pháp: res.cookie(name, value, [options])
+        res.cookie('token', accessToken, { expire: new Date() + 9999 })
+
         // nếu đăng kí thành công sẽ trả về success, message, accesstoken(mã token)
         res.json({
             success: true,
@@ -105,6 +108,17 @@ exports.login = async (req, res) => {
         res.status(500).json({
             success: false,
             message: "Internal server error"
+        })
+    }
+}
+
+exports.logout = (req, res) => {
+    if (req.cookies.token) {
+        // nếu trong cookie có giá trị token thì xóa cookie
+        res.clearCookie('token');
+        res.json({
+            success: true,
+            message: 'Logout Success'
         })
     }
 }
