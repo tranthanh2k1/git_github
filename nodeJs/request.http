@@ -67,7 +67,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGMwY
 
 // CATEGORY
 ###
-
+//CREATE CATEGORY
 POST http://localhost:3111/api/category
 Content-Type: application/json
 
@@ -77,16 +77,66 @@ Content-Type: application/json
 
 
 ###
-
+// LIST CATEGORY
 GET http://localhost:3111/api/categories
 Content-Type: application/json
 
 
 ###
-
+// UPDATE CATEGORY
 PUT http://localhost:3111/api/category/60ca1dd073fa4444b0636396
 Content-Type: application/json
 
 {
     "name": "danh mục 3"
 }
+
+
+###
+// REMOVE CATEGORY
+DELETE http://localhost:3111/api/category/60cc14a9162b8f37689cd78d
+Content-Type: application/json
+
+
+
+// PRODUCT
+###
+// CREATE PRODUCT
+POST http://localhost:3111/api/product
+Content-Type: application/json
+
+{
+    "name": "Product 7",
+    "description": "Mô tả sản phẩm 1",
+    "price": 12323
+}
+
+
+###
+// LIST PRODUCT
+GET http://localhost:3111/api/products
+Content-Type: application/json
+
+
+###
+// SEARCH PRODUCT
+GET http://localhost:3111/api/product/search?name=1
+Content-Type: application/json
+
+
+
+###
+// UPDATE PRODUCT
+PUT http://localhost:3111/api/product/60d4c3a6f5b13b4844f75279
+Content-Type: application/json
+
+{
+    "name": "thành 2k121qưe",
+    "description": "mô tả sản phẩm 10",
+    "price": "12313"
+}
+
+###
+// REMOVE PRODUCT
+DELETE http://localhost:3111/api/product/60d4c3abf5b13b4844f7527a
+Content-Type: application/json
