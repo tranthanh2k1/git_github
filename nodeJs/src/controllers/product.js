@@ -16,9 +16,9 @@ exports.productID = (req, res, next, id) => {
 }
 
 exports.create = (req, res) => {
-    const { name, description, price } = req.body;
+    const { name, description, price, category } = req.body;
 
-    if (!name || !description || !price) {
+    if (!name || !description || !price || !category) {
         return res.status(400).json({
             success: false,
             message: "Bạn cần nhập đủ thông tin"
@@ -28,7 +28,8 @@ exports.create = (req, res) => {
     const newProduct = new Product({
         name,
         description,
-        price
+        price,
+        category
     })
 
     newProduct.save((err, product) => {
@@ -50,9 +51,9 @@ exports.create = (req, res) => {
 exports.update = (req, res) => {
     let product = req.product;  // lấy ra thông tin của sản phẩm thuộc id
 
-    const { name, description, price } = req.body;
+    const { name, description, price, category } = req.body;
 
-    if (!name || !description || !price) {
+    if (!name || !description || !price || !category) {
         return res.status(400).json({
             success: false,
             message: "Bạn cần điền đủ thông tin"
@@ -156,4 +157,20 @@ exports.searchProduct = (req, res) => {
                 product: product
             })
         })
+}
+
+exports.productByCate = (req, res) => {
+    const { cateId } = req.params;      // lấy params id trên đường dẫn
+
+    // lấy tất cả bản ghi có trường category trùng với params id lấy đc
+    Product.find({ category: cateId }, (err, data) => {
+        if (err) {
+            return res.status(400).json({
+                success: false,
+                message: "Không tìm thấy sản phẩm nào"
+            })
+        }
+
+        res.json({ data })
+    })
 }

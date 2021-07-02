@@ -24,11 +24,11 @@ const ProductSchema = new Schema({
     //     required: true,
     //     type: Boolean
     // },
-    // category: {
-    //     type: ObjectId,
-    //     ref: 'categories',      // liên kết đến bảng categories
-    //     required: true
-    // },
+    category: {
+        type: ObjectId,
+        ref: 'categories',      // liên kết đến bảng categories
+        required: true
+    },
     createAt: {
         type: Date,
         default: Date.now

@@ -106,9 +106,10 @@ POST http://localhost:3111/api/product
 Content-Type: application/json
 
 {
-    "name": "Product 7",
+    "name": "Product 4",
     "description": "Mô tả sản phẩm 1",
-    "price": 12323
+    "price": 12323,
+    "category": "60ca20f966792a4414c7f3fd"
 }
 
 
@@ -136,7 +137,14 @@ Content-Type: application/json
     "price": "12313"
 }
 
+
 ###
 // REMOVE PRODUCT
-DELETE http://localhost:3111/api/product/60d4c3abf5b13b4844f7527a
+DELETE http://localhost:3111/api/product/60d4c3a6f5b13b4844f75279
+Content-Type: application/json
+
+
+###
+// TRẢ VỀ DANH SÁNH SẢN PHẨM THUỘC DANH MỤC
+http://localhost:3111/api/productss/60ca20f966792a4414c7f3fd
 Content-Type: application/json
