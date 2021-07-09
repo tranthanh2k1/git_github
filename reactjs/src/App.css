@@ -1,0 +1,56 @@
+.App {
+    width: 700px;
+    margin: 0 auto;
+    position: relative;
+    text-align: center;
+}
+
+.title{
+    
+}
+
+.form-add{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.input-add {
+    flex: 4;
+    height: 40px;
+    outline: 0;
+}
+
+.btn-add {
+    flex: 1;
+    height: 40px;
+    background-color: #37a69b;
+    border: none;
+}
+
+.todo-list {
+    margin-top: 20px;
+}
+
+.todo-list:last-child {
+    border: 1px solid #ccc;
+}
+
+.todo-item {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #ccc;
+    border-bottom: none;
+}
+
+.todoItem-checkbox {
+    flex: 1;
+}
+
+.todoItem-title {
+    
+}
+
+.todoItem-btn {
+    flex: 1;
+}
