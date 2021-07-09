@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const { ObjectId } = mongoose.Schema;
 const Schema = mongoose.Schema;
 
 const ProductSchema = new Schema({
@@ -10,16 +11,23 @@ const ProductSchema = new Schema({
     },
     description: {
         type: String,
+        required: true
     },
     price: {
         type: Number,
+        required: true
     },
-    photo: {
-        type: String
-    },
-    shipping: {
-        required: true,
-        type: Boolean
+    // photo: {
+    //     type: String
+    // },
+    // shipping: {
+    //     required: true,
+    //     type: Boolean
+    // },
+    category: {
+        type: ObjectId,
+        ref: 'categories',      // liên kết đến bảng categories
+        required: true
     },
     createAt: {
         type: Date,

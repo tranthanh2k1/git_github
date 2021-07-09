@@ -81,5 +81,19 @@ exports.list = (req, res) => {
 }
 
 exports.remove = (req, res) => {
-    res.send("Xóa danh mục")
+    let category = req.category;
+
+    category.remove((err, deleteCategory) => {
+        if (err) {
+            return res.status.json({
+                success: false,
+                message: "Không xóa được danh mục"
+            })
+        }
+
+        res.json({
+            success: true,
+            deleteCategory
+        })
+    })
 }
