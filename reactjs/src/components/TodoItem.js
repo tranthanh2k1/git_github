@@ -1,38 +1,27 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ThemeContext } from "../contexts/ThemeContext";
 
 const TodoItem = (props) => {
-  const onChangeCheckbox = (id) => {
-    props.handleCheckbox(id);
-  };
+  const { theme } = useContext(ThemeContext);
+  const { isLightTheme, dark, light } = theme;
+  const style = isLightTheme ? light : dark;
 
   const onRemove = (id) => {
     props.onDelete(id);
   };
 
-  const todoItemTitle = {
-    flex: 5,
-    textDecoration: props.todo.isCompleted ? "line-through" : "none",
-  };
+  // const todoItemTitle = {
+  //   flex: 5,
+  //   textDecoration: props.todo.isCompleted ? "line-through" : "none",
+  // };
 
   return (
-    <>
-      <div className="todo-item">
-        <input
-          type="checkbox"
-          onChange={() => onChangeCheckbox(props.todo.id)}
-          className="todoItem-checkbox"
-        />
-        <p style={todoItemTitle} className="todoItem-title">
-          {props.todo.title}
-        </p>
-        <button
-          onClick={() => onRemove(props.todo.id)}
-          className="todoItem-btn"
-        >
-          Delete
-        </button>
-      </div>
-    </>
+    <li style={style}>
+      {props.todo.title}
+      <button onClick={() => onRemove(props.todo.id)} className="todoItem-btn">
+        Delete
+      </button>
+    </li>
   );
 };
 

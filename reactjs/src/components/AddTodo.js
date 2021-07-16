@@ -1,26 +1,36 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from "react";
+import { ThemeContext } from "../contexts/ThemeContext";
 
-const AddTodo = (props) => {
-    const [textInput, setTextInput] = useState('');
+const AddTodo = ({ onAdd }) => {
+  const { theme } = useContext(ThemeContext);
+  const { isLightTheme, dark, light } = theme;
+  const style = isLightTheme ? light : dark;
 
-    const onHandleValue = (e) => {
-        setTextInput(e.target.value)
-    }
+  const [textInput, setTextInput] = useState("");
 
-    const onSubmit = (e) => {
-        e.preventDefault();
-        props.onAdd(textInput);
-        setTextInput('')
-    }
+  const onHandleValue = (e) => {
+    setTextInput(e.target.value);
+  };
 
-    return (
-        <>
-            <form className="form-add" onSubmit={onSubmit}>
-                <input type="text" value={textInput} placeholder="Thêm việc cần làm..." onChange={onHandleValue} className="input-add" />
-                <button className="btn-add">Thêm</button>
-            </form>
-        </>
-    )
-}
+  const onSubmit = (e) => {
+    e.preventDefault();
+    onAdd(textInput);
+    setTextInput("");
+  };
 
-export default AddTodo
+  return (
+    <form onSubmit={onSubmit}>
+      <input
+        type="text"
+        name="title"
+        value={textInput}
+        placeholder="Thêm việc cần làm..."
+        onChange={onHandleValue}
+        required
+      />
+      <input type="submit" value="Add" style={style} />
+    </form>
+  );
+};
+
+export default AddTodo;
