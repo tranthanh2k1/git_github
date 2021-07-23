@@ -3,7 +3,7 @@ const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
-
+const cors = require('cors')
 
 const productRoutes = require('./routes/product');
 const authRoutes = require('./routes/auth');
@@ -25,6 +25,7 @@ mongoose.connection.on('Error', err => {
 
 const app = express();
 app.use(express.json());
+app.use(cors())
 
 // HTTP logger
 app.use(morgan('dev'));

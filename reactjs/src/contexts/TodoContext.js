@@ -1,28 +1,21 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useEffect } from "react";
 import { v4 } from "uuid";
+import axios from "axios";
 
 export const TodoContext = createContext();
 
 const TodoContextProvider = ({ children }) => {
-  const [todos, setTodos] = useState([
-    {
-      id: v4(),
-      title: "Việc 1",
-      isCompleted: false,
-    },
-    {
-      id: v4(),
-      title: "Việc 2",
-      isCompleted: false,
-    },
-    {
-      id: v4(),
-      title: "Việc 3",
-      isCompleted: false,
-    },
-  ]);
+  const [todos, setTodos] = useState([]);
 
-  const onAdd = (todo) => {
+  // const API = "http://localhost:3001/todos";
+
+  const onAdd = async (todo) => {
+    await axios.post(`http://localhost:3001/todos`, {
+      id: v4(),
+      title: todo,
+      isCompleted: false,
+    });
+
     setTodos([
       ...todos, //spread operator
       {
@@ -33,17 +26,29 @@ const TodoContextProvider = ({ children }) => {
     ]);
   };
 
-  const onDelete = (id) => {
-    const newTodos = todos.filter((todo) => todo.id !== id);
+  const onDelete = async (id) => {
+    await axios.delete(`http://localhost:3001/todos/${id}`);
 
+    const newTodos = todos.filter((todo) => todo.id !== id);
     setTodos(newTodos);
   };
+
+  // useEffect(() => {}): luôn luôn chạy sau mỗi lần render
+  // useEffect(() => {}, []): chạy 1 lần duy nhất
+  // useEffect(() => {}, [dependencies]): chạy ít nhất 1 lần nếu dependencies thay đổi thì chạy lại hàm
+  useEffect(() => {
+    const fetchData = async () => {
+      const { data } = await axios.get(`http://localhost:3001/todos`);
+      setTodos(data);
+    };
+
+    fetchData();
+  }, []);
 
   const TodoContextData = {
     todos,
     onAdd,
     onDelete,
-    // useReducer: là kho chứa tất cả hàm, những hàng động mà ng dùng tác động lên trên components
   };
 
   return (
