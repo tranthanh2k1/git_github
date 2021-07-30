@@ -1,19 +1,28 @@
 import React, { useContext } from "react";
 import { ThemeContext } from "../contexts/ThemeContext";
+import { TodoContext } from "../contexts/TodoContext";
 
-const TodoItem = ({ onDelete, todo }) => {
+const TodoItem = ({ todo }) => {
   const { theme } = useContext(ThemeContext);
   const { isLightTheme, dark, light } = theme;
   const style = isLightTheme ? light : dark;
 
-  const onRemove = (id) => {
-    onDelete(id);
-  };
+  const { dispatch } = useContext(TodoContext);
 
   return (
     <li style={style}>
       {todo.title}
-      <button onClick={() => onRemove(todo.id)} className="todoItem-btn">
+      <button
+        onClick={() =>
+          dispatch({
+            type: "DELETE_TODO",
+            payload: {
+              id: todo.id,
+            },
+          })
+        }
+        className="todoItem-btn"
+      >
         Delete
       </button>
     </li>

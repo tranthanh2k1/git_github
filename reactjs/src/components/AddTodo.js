@@ -1,21 +1,34 @@
 import React, { useState, useContext } from "react";
-import { ThemeContext } from "../contexts/ThemeContext";
+import { v4 } from "uuid";
 
-const AddTodo = ({ onAdd }) => {
+import { ThemeContext } from "../contexts/ThemeContext";
+import { TodoContext } from "../contexts/TodoContext";
+
+const AddTodo = () => {
   const { theme } = useContext(ThemeContext);
   const { isLightTheme, dark, light } = theme;
   const style = isLightTheme ? light : dark;
 
-  const [textInput, setTextInput] = useState("");
+  const { dispatch } = useContext(TodoContext);
+
+  const [title, setTitle] = useState("");
 
   const onHandleValue = (e) => {
-    setTextInput(e.target.value);
+    setTitle(e.target.value);
   };
 
   const onSubmit = (e) => {
     e.preventDefault();
-    onAdd(textInput);
-    setTextInput("");
+    dispatch({
+      type: "ADD_TODO",
+      payload: {
+        todo: {
+          id: v4(),
+          title,
+        },
+      },
+    });
+    setTitle("");
   };
 
   return (
@@ -23,7 +36,7 @@ const AddTodo = ({ onAdd }) => {
       <input
         type="text"
         name="title"
-        value={textInput}
+        value={title}
         placeholder="Thêm việc cần làm..."
         onChange={onHandleValue}
         required

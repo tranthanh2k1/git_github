@@ -4,14 +4,15 @@ import TodoItem from "./TodoItem";
 import { TodoContext } from "../contexts/TodoContext";
 
 const TodoList = () => {
-  const { todos, onAdd, onDelete } = useContext(TodoContext);
+  const { todos } = useContext(TodoContext);
+  console.log(todos);
 
   return (
     <div className="todo-list">
-      <AddTodo onAdd={onAdd} />
+      <AddTodo />
       <ul>
         {todos.map((todo, index) => (
-          <TodoItem key={index} todo={todo} onDelete={onDelete} />
+          <TodoItem key={index} todo={todo} />
         ))}
       </ul>
     </div>
